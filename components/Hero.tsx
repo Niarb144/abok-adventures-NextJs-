@@ -24,10 +24,8 @@ export default function Hero() {
       <section className="relative min-h-screen overflow-hidden">
         {/* Background */}
         <motion.div
-          style={{ y: bgY ,
-              backgroundImage: "url(/images/webp/img6.webp)"
-          }}
-          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: "url(/images/webp/img6.webp)"  }}
+          className="absolute inset-0 bg-cover bg-center fixed z-[-1]"
         />
 
         {/* Overlay */}

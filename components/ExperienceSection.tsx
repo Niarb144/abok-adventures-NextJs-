@@ -96,7 +96,7 @@ export default function ExperienceSection() {
 
             <a
               href="/destinations"
-              className="inline-block px-6 py-3 bg-[#8B4513] text-white font-semibold hover:bg-[#8B4513]/80 transition"
+              className="inline-block px-6 py-3 bg-[#8B4513] text-white font-semibold hover:bg-[#8B4513]/80 transition rounded-sm"
             >
               Search Destination
             </a>
