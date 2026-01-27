@@ -47,7 +47,7 @@ useEffect(() => {
     <motion.nav
       animate={{
         backgroundColor: scrolled
-          ? "rgba(255,255,255,0.65)"
+          ? "rgba(255,255,255,0.8)"
           : "rgba(255,255,255,0)",
         boxShadow: scrolled
           ? "0 2px 10px rgba(0,0,0,0.1)"
@@ -80,13 +80,13 @@ useEffect(() => {
               <Link key={link.href} href={link.href} className="relative group">
                 <span
                   className={`transition-colors duration-300 ${
-                    isActive ? "text-blue-500" : "hover:text-blue-600"
+                    isActive ? "#8B4513" : "#8B4513"
                   }`}
                 >
                   {link.label}
                 </span>
                 <span
-                  className={`absolute left-0 -bottom-1 h-[2px] bg-blue-900 transition-all duration-300 ease-out 
+                  className={`absolute left-0 -bottom-1 h-[2px] bg-[#8B4513] transition-all duration-300 ease-out 
                     ${isActive ? "w-full" : "w-0 group-hover:w-full"}
                   `}
                 ></span>
@@ -99,9 +99,9 @@ useEffect(() => {
         <div className="hidden lg:flex items-center gap-5">
           <Link
             href="/nidinc"
-            className="px-4 py-2 bg-blue-600 text-white rounded-full font-semibold hover:bg-red-700 transition-all"
+            className="px-4 py-2 bg-[#8B4513] text-white rounded-full font-semibold hover:bg-[#8B4513]/80 transition-all"
           >
-            Nid Inc
+            Language
           </Link>
         </div>
 
@@ -115,7 +115,7 @@ useEffect(() => {
             animate={{
               rotate: menuOpen ? 45 : 0,
               y: menuOpen ? 8 : 0,
-              backgroundColor: scrolled ? "#1f3eecff" : "#2340e4ff",
+              backgroundColor: scrolled ? "#8B4513" : "#8B4513",
             }}
             transition={{ duration: 0.3 }}
             className="block w-full h-[2px] rounded-full"
@@ -123,7 +123,7 @@ useEffect(() => {
           <motion.span
             animate={{
               opacity: menuOpen ? 0 : 1,
-              backgroundColor: scrolled ? "#071c97ff" : "#1e8df5ff",
+              backgroundColor: scrolled ? "#8B4513" : "#8B4513",
             }}
             transition={{ duration: 0.2 }}
             className="block w-full h-[2px] rounded-full"
@@ -132,7 +132,7 @@ useEffect(() => {
             animate={{
               rotate: menuOpen ? -45 : 0,
               y: menuOpen ? -8 : 0,
-              backgroundColor: scrolled ? "#1f3eecff" : "#2340e4ff",
+              backgroundColor: scrolled ? "#8B4513" : "#8B4513",
             }}
             transition={{ duration: 0.3 }}
             className="block w-full h-[2px] rounded-full"
@@ -176,12 +176,12 @@ useEffect(() => {
                     href={link.href}
                     onClick={() => setMenuOpen(false)}
                     className={`relative ${
-                      isActive ? "text-blue-400 font-semibold" : ""
+                      isActive ? "text-[#8B4513] font-semibold" : ""
                     }`}
                   >
                     {link.label}
                     {isActive && (
-                      <span className="absolute left-0 -bottom-1 w-full h-[2px] bg-blue-900"></span>
+                      <span className="absolute left-0 -bottom-1 w-full h-[2px] bg-[#8B4513]"></span>
                     )}
                   </Link>
                 </motion.div>
@@ -198,9 +198,9 @@ useEffect(() => {
               <Link
                 href="/nidinc"
                 onClick={() => setMenuOpen(false)}
-                className="px-5 py-2 bg-blue-600 text-white rounded-full font-semibold hover:blue-700 transition-all"
+                className="px-5 py-2 bg-[#8B4513] text-white rounded-full font-semibold hover:bg-[#8B4513]/80 transition-all"
               >
-                Nid Inc
+                Language
               </Link>
             </div>
             </motion.div>
