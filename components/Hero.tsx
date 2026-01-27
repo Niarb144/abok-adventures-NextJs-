@@ -94,7 +94,7 @@ export default function Hero() {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
             className="relative w-20 h-20 rounded-full bg-white text-[#8B4513] 
-                       flex items-center justify-center shadow-xl"
+                       flex items-center justify-center shadow-xl cursor-pointer"
             aria-label="Play video"
           >
             <FaPlay className="ml-1 text-2xl" />
