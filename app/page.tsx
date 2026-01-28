@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import ExperienceSection from "@/components/ExperienceSection";
 import Destinations from "@/components/Destinations";
 import TourDestinations from "@/components/TourDestinations";
+import AboutPage from "@/components/AboutPage";
 
 export default function Home() {
   return (
@@ -13,6 +14,8 @@ export default function Home() {
         <ExperienceSection />
         <Destinations />
         <TourDestinations />
+        <AboutPage />
+        
       </main>
     </div>
   );
