@@ -1,131 +1,117 @@
+import { span } from "framer-motion/m";
 import Link from "next/link";
+
+import { FaTiktok, FaFacebookF, FaInstagram, FaPhone, FaRegPaperPlane } from "react-icons/fa6";
+import { PiMapPinArea } from "react-icons/pi";
 
 export default function Footer() {
   return (
     <footer
-      className="ftco-footer bg-bottom ftco-no-pt"
+      className="bg-cover bg-center bg-no-repeat pt-12 pb-6 text-gray-800"
       style={{ backgroundImage: "url(/images/bg_3.jpg)" }}
     >
-      <div className="container">
-        <div className="row mb-5">
-          {/* About */}
-          <div className="col-md pt-5">
-            <div className="ftco-footer-widget pt-md-5 mb-4">
-              <h2 className="ftco-heading-2">About</h2>
-              <p>
-                Abok Adventures is a premier travel agency specializing in
-                unforgettable African safaris across Kenya and Tanzania. We
-                craft authentic experiences that connect travelers with the
-                breathtaking landscapes, diverse wildlife, and rich cultures
-                of East Africa.
-              </p>
+      <div className="max-w-7xl mx-auto px-6">
+        {/* GRID */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-10">
 
-              <ul className="ftco-footer-social list-unstyled float-md-left float-lft">
-                <li className="ftco-animate">
-                  <a
-                    href="https://www.tiktok.com/@abokadventuresandsafaris"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <span className="fa-brands fa-tiktok"></span>
-                  </a>
-                </li>
-                <li className="ftco-animate">
-                  <a
-                    href="https://www.facebook.com/profile.php?id=61579892807201"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <span className="fa fa-facebook"></span>
-                  </a>
-                </li>
-                <li className="ftco-animate">
-                  <a
-                    href="https://www.instagram.com/abokadventuresandsafaris/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <span className="fa fa-instagram"></span>
-                  </a>
-                </li>
-              </ul>
-            </div>
+          {/* About */}
+          <div>
+            <h2 className="text-[#8B4513] text-xl font-semibold mb-4">
+              About
+            </h2>
+
+            <p className="text-gray-600 text-sm leading-relaxed">
+              Abok Adventures is a premier travel agency specializing in
+              unforgettable African safaris across Kenya and Tanzania. We
+              craft authentic experiences that connect travelers with the
+              breathtaking landscapes, diverse wildlife, and rich cultures
+              of East Africa.
+            </p>
+
+            <ul className="flex gap-4 text-[#8B4513] mt-5">
+              <li>
+                <a href="https://www.tiktok.com/@abokadventuresandsafaris" target="_blank">
+                  <FaTiktok size={22} />
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/profile.php?id=61579892807201" target="_blank">
+                  <FaFacebookF size={22} />
+                </a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/abokadventuresandsafaris/" target="_blank">
+                  <FaInstagram size={22} />
+                </a>
+              </li>
+            </ul>
           </div>
 
           {/* Information */}
-          <div className="col-md pt-5 border-left">
-            <div className="ftco-footer-widget pt-md-5 mb-4 ml-md-5">
-              <h2 className="ftco-heading-2">Information</h2>
-              <ul className="list-unstyled">
-                <li><Link href="/contact" className="py-2 d-block">Online Enquiry</Link></li>
-                <li><Link href="/terms-and-conditions" className="py-2 d-block">Terms & Conditions</Link></li>
-                <li><Link href="/privacy" className="py-2 d-block">Privacy</Link></li>
-                <li><Link href="/refund" className="py-2 d-block">Refund Policy</Link></li>
-                <li><Link href="/cookie-policy" className="py-2 d-block">Cookie Policy</Link></li>
-                <li><Link href="/contact" className="py-2 d-block">Call Us</Link></li>
-              </ul>
-            </div>
+          <div>
+            <h2 className="text-[#8B4513] text-xl font-semibold mb-4">
+              Information
+            </h2>
+
+            <ul className="space-y-2 text-gray-600 text-sm">
+              <li><Link href="/contact">Online Enquiry</Link></li>
+              <li><Link href="/terms-and-conditions">Terms & Conditions</Link></li>
+              <li><Link href="/privacy">Privacy</Link></li>
+              <li><Link href="/refund">Refund Policy</Link></li>
+              <li><Link href="/cookie-policy">Cookie Policy</Link></li>
+              <li><Link href="/contact">Call Us</Link></li>
+            </ul>
           </div>
 
           {/* Experience */}
-          <div className="col-md pt-5 border-left">
-            <div className="ftco-footer-widget pt-md-5 mb-4">
-              <h2 className="ftco-heading-2">Experience</h2>
-              <ul className="list-unstyled">
-                <li><Link href="/destination" className="py-2 d-block">Adventure</Link></li>
-                <li><Link href="/hotel" className="py-2 d-block">Hotel and Restaurant</Link></li>
-                <li><Link href="/destination" className="py-2 d-block">Beach</Link></li>
-                <li><Link href="/destination" className="py-2 d-block">Nature</Link></li>
-                <li><Link href="/hotel" className="py-2 d-block">Camping</Link></li>
-              </ul>
-            </div>
+          <div>
+            <h2 className="text-[#8B4513] text-xl font-semibold mb-4">
+              Experience
+            </h2>
+
+            <ul className="space-y-2 text-gray-600 text-sm">
+              <li><Link href="/destination">Adventure</Link></li>
+              <li><Link href="/hotel">Hotel & Restaurant</Link></li>
+              <li><Link href="/destination">Beach</Link></li>
+              <li><Link href="/destination">Nature</Link></li>
+              <li><Link href="/hotel">Camping</Link></li>
+            </ul>
           </div>
 
           {/* Contact */}
-          <div className="col-md pt-5 border-left">
-            <div className="ftco-footer-widget pt-md-5 mb-4">
-              <h2 className="ftco-heading-2">Have a Questions?</h2>
-              <div className="block-23 mb-3">
-                <ul>
-                  <li>
-                    <span className="icon fa fa-map-marker"></span>
-                    <span className="text">CBD Nairobi, Kenya</span>
-                  </li>
-                  <li>
-                    <a
-                      href="https://wa.me/254759335885"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <span className="icon fa fa-phone"></span>
-                      <span className="text">+2547 59335885</span>
-                    </a>
-                  </li>
-                  <li>
-                    <Link href="/contact">
-                      <span className="icon fa fa-paper-plane"></span>
-                      <span className="text">info@abokadventures.com</span>
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            </div>
+          <div>
+            <h2 className="text-[#8B4513] text-xl font-semibold mb-4">
+              Have a Question?
+            </h2>
+
+            <ul className="space-y-3 text-gray-600 text-sm">
+              <li className="flex items-start gap-2">
+                <PiMapPinArea size={18} />
+                <span>CBD Nairobi, Kenya</span>
+              </li>
+
+              <li className="flex items-start gap-2">
+                <FaPhone size={18} />
+                <a href="https://wa.me/254759335885" target="_blank">
+                  +254 759 335 885
+                </a>
+              </li>
+
+              <li className="flex items-start gap-2">
+                <FaRegPaperPlane size={18} />
+                <Link href="/contact">info@abokadventures.com</Link>
+              </li>
+            </ul>
           </div>
+
         </div>
 
         {/* Copyright */}
-        <div className="row">
-          <div className="col-md-12 text-center">
-            <p>
-              © {new Date().getFullYear()} All rights reserved Abok Adventures &
-              Safaris <i className="fa fa-heart" aria-hidden="true"></i> by{" "}
-              <a href="https://colorlib.com" target="_blank" rel="noopener noreferrer">
-                Colorlib
-              </a>
-            </p>
-          </div>
+        <div className="text-center text-gray-600 text-sm border-t pt-4">
+          © {new Date().getFullYear()} Abok Adventures & Safaris. All rights reserved.
         </div>
       </div>
     </footer>
   );
 }
+
