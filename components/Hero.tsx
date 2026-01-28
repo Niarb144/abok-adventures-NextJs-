@@ -6,26 +6,37 @@ import {
   useTransform,
   AnimatePresence,
 } from "framer-motion";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { FaPlay, FaTimes } from "react-icons/fa";
 
 export default function Hero() {
-  const { scrollY } = useScroll();
+  const sectionRef = useRef<HTMLDivElement>(null);
   const [isOpen, setIsOpen] = useState(false);
 
-  // Parallax motion values
-  const bgY = useTransform(scrollY, [0, 1000], [0, 560]);
-  const contentY = useTransform(scrollY, [0, 600], [0, -50]);
-  const overlayOpacity = useTransform(scrollY, [0, 400], [0.55, 0.75]);
+  // Track ONLY hero scroll
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  });
+
+  // Lightweight transforms
+  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "60%"]);
+  const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "-40%"]);
+  const overlayOpacity = useTransform(scrollYProgress, [0, 1], [0.35, 0.55]);
 
   return (
     <>
       {/* HERO */}
-      <section className="relative min-h-screen overflow-hidden">
-        {/* Background */}
+      <section
+        ref={sectionRef}
+        className="relative min-h-screen overflow-hidden"
+      >
+        {/* Background (NOT fixed) */}
         <motion.div
-          style={{ backgroundImage: "url(/images/webp/img6.webp)"  }}
-          className="absolute inset-0 bg-cover bg-center fixed z-[-1]"
+          style={{ y: bgY ,
+            backgroundImage: "url(/images/webp/img6.webp)"
+          }}
+          className="absolute inset-0 bg-cover bg-center will-change-transform"
         />
 
         {/* Overlay */}
@@ -37,12 +48,12 @@ export default function Hero() {
         {/* Content */}
         <motion.div
           style={{ y: contentY }}
-          className="relative z-10 min-h-screen flex items-center px-6 md:px-24"
+          className="relative z-10 min-h-screen flex items-center px-6 md:px-24 md:mt-28"
         >
-          <div className="max-w-3xl text-left md:mt-20">
-            <p className="text-white/80 mb- span-emphasis text-3xl md:text-4xl">
+          <div className="max-w-3xl">
+            <p className="text-white/80 text-3xl md:text-4xl mb-3">
               Welcome to Abok Adventures{" "}
-              <span className="text-[#8B4513] font-semibold span-emphasis">&</span> Safaris
+              <span className="text-[#8B4513] font-semibold">&</span> Safaris
             </p>
 
             <h1 className="text-4xl md:text-6xl font-extrabold text-white leading-tight">
@@ -67,9 +78,8 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        {/* PLAY BUTTON WITH PULSE */}
+        {/* PLAY BUTTON */}
         <div className="absolute right-8 md:right-16 top-1/2 -translate-y-1/2 z-20">
-          {/* Pulse rings */}
           <motion.span
             className="absolute inset-0 rounded-full border border-[#8B4513]/80"
             animate={{ scale: [1, 1.8], opacity: [0.6, 0] }}
@@ -78,47 +88,38 @@ export default function Hero() {
           <motion.span
             className="absolute inset-0 rounded-full border border-[#8B4513]/80"
             animate={{ scale: [1, 2.2], opacity: [0.4, 0] }}
-            transition={{
-              duration: 2.5,
-              repeat: Infinity,
-              ease: "easeOut",
-              delay: 0.5,
-            }}
+            transition={{ duration: 2.5, repeat: Infinity, delay: 0.5 }}
           />
 
-          {/* Button */}
           <motion.button
             onClick={() => setIsOpen(true)}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
-            className="relative w-20 h-20 rounded-full bg-white text-[#8B4513] 
-                       flex items-center justify-center shadow-xl cursor-pointer"
-            aria-label="Play video"
+            className="relative w-20 h-20 rounded-full bg-white text-[#8B4513]
+                       flex items-center justify-center shadow-xl"
           >
             <FaPlay className="ml-1 text-2xl" />
           </motion.button>
         </div>
       </section>
 
-      {/* VIDEO MODAL (lazy-loaded) */}
+      {/* VIDEO MODAL */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
+            className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center px-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-[#8B4513]/80 flex items-center justify-center px-4"
             onClick={() => setIsOpen(false)}
           >
             <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              transition={{ duration: 0.25 }}
               className="relative w-full max-w-4xl aspect-video bg-black rounded-lg overflow-hidden"
+              initial={{ scale: 0.9 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.9 }}
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Close */}
               <button
                 onClick={() => setIsOpen(false)}
                 className="absolute top-4 right-4 z-10 text-white text-xl"
@@ -126,13 +127,12 @@ export default function Hero() {
                 <FaTimes />
               </button>
 
-              {/* IFRAME ONLY EXISTS WHEN OPEN */}
-              <iframe
-                className="w-full h-full"
-                src="images/video/ABOK.mp4?autoplay=1&mute=1"
-                title="Safari Experience"
-                allow="autoplay; encrypted-media"
-                allowFullScreen
+              <video
+                src="/images/video/ABOK.mp4"
+                autoPlay
+                muted
+                controls
+                className="w-full h-full object-cover"
               />
             </motion.div>
           </motion.div>
