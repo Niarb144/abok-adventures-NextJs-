@@ -10,7 +10,7 @@ export default function WhatsAppFloat() {
   );
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex items-center gap-3">
+    <div className="fixed bottom-20 right-6 z-50 flex items-center gap-3">
 
       {/* Button */}
       <a
@@ -31,10 +31,10 @@ export default function WhatsAppFloat() {
         <motion.div
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
-          className="relative w-16 h-16 rounded-full bg-green-500 
+          className="relative w-14 h-14 rounded-full bg-green-500 
                      flex items-center justify-center shadow-xl"
         >
-          <FaWhatsapp className="text-white text-3xl" />
+          <FaWhatsapp className="text-white text-2xl" />
         </motion.div>
       </a>
     </div>

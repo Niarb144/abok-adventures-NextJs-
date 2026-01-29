@@ -4,6 +4,7 @@ import ExperienceSection from "@/components/ExperienceSection";
 import Destinations from "@/components/Destinations";
 import TourDestinations from "@/components/TourDestinations";
 import AboutPage from "@/components/AboutPage";
+import ReviewsCTASection from "@/components/ReviewsCTASection";
 
 export default function Home() {
   return (
@@ -15,7 +16,8 @@ export default function Home() {
         <Destinations />
         <TourDestinations />
         <AboutPage />
-        
+        <ReviewsCTASection />
+
       </main>
     </div>
   );

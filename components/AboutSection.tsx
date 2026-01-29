@@ -2,25 +2,28 @@ import Link from "next/link";
 
 export function AboutSection() {
   return (
-    <section className="py-0 bg-white">
-      <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
-        
-        {/* Image */}
-        <div className="relative h-96 border-4 border-white">
-          <div className="absolute top-0 -left-6 w-full h-full border-4 border-white z-0" />
-          <img
-            src="/images/webp/img13.webp"
-            alt="About Abok Adventures"
-            className="relative z-10 w-full object-cover shadow-lg"
-          />
+    <section className="relative bg-white pt-32 pb-20">
+      <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+
+        {/* IMAGE — OVERLAPPING */}
+        <div className="relative -mt-50 px-8 z-20">
+          <div className="bg-white p-4 shadow-xl">
+            <img
+              src="/images/webp/img13.webp"
+              alt="About Abok Adventures"
+              className="w-full object-cover"
+            />
+          </div>
         </div>
 
-        {/* Content */}
-        <div>
-          <p className="text-[#8B4513] font-medium mb-2">About Us</p>
+        {/* CONTENT */}
+        <div className="md:pt-0 relative -mt-20">
+          <p className="text-[#8B4513] font-medium text-5xl mb-2 title-emphasis">
+            About Us
+          </p>
 
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 leading-snug">
-            Make Your Tour Memorable and Safe <br /> With Us
+            Make Your Tour Memorable and Safe With Us
           </h2>
 
           <p className="mt-6 text-gray-600 leading-relaxed max-w-xl">

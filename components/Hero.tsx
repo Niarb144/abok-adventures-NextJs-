@@ -48,10 +48,10 @@ export default function Hero() {
         {/* Content */}
         <motion.div
           style={{ y: contentY }}
-          className="relative z-10 min-h-screen flex items-center px-6 md:px-24 md:mt-28"
+          className="relative z-10 min-h-screen flex items-center px-6 md:px-24 md:mt-20"
         >
           <div className="max-w-3xl">
-            <p className="text-white/80 text-3xl md:text-4xl mb-3">
+            <p className="text-white/80 text-3xl md:text-4xl mb-3 title-emphasis">
               Welcome to Abok Adventures{" "}
               <span className="text-[#8B4513] font-semibold">&</span> Safaris
             </p>
