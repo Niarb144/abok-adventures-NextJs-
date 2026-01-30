@@ -50,8 +50,8 @@ export default function Hero() {
           style={{ y: contentY }}
           className="relative z-10 min-h-screen flex items-center px-6 md:px-24 md:mt-20"
         >
-          <div className="max-w-3xl">
-            <p className="text-white/80 text-3xl md:text-4xl mb-3 title-emphasis">
+          <div className="max-w-2xl md:max-w-3xl">
+            <p className="text-white/80 text-3xl w-3/4 md:text-4xl mb-3 title-emphasis">
               Welcome to Abok Adventures{" "}
               <span className="text-[#8B4513] font-semibold">&</span> Safaris
             </p>
@@ -79,7 +79,7 @@ export default function Hero() {
         </motion.div>
 
         {/* PLAY BUTTON */}
-        <div className="absolute right-8 md:right-16 top-1/2 -translate-y-1/2 z-20">
+        <div className="absolute right-2 md:right-16 top-[40dvh] md:top-1/2 -translate-y-1/2 z-20">
           <motion.span
             className="absolute inset-0 rounded-full border border-[#8B4513]/80"
             animate={{ scale: [1, 1.8], opacity: [0.6, 0] }}
