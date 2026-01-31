@@ -32,6 +32,14 @@ useEffect(() => {
   setClipOrigin({ x: `${x}%`, y: `${y}%` });
 }, [menuOpen]);
 
+  const tourLinks = [
+    { href: "/tours/day-trips", label: "Day Trips" },
+    { href: "/tours/wildlife-safaris", label: "Wildlife Safaris" },
+    { href: "/tours/cultural-tours", label: "Cultural Tours" },
+    { href: "/tours/adventure", label: "Adventure Tours" },
+  ];
+
+
   const navLinks = [
     { href: "/", label: "Home" },
     { href: "/about", label: "About" },
@@ -75,8 +83,40 @@ useEffect(() => {
           }`}
         >
           {navLinks.map((link) => {
+            
             const isActive = pathname === link.href;
+
+            if(link.label === "Tours") {
+              return (
+              <div key={link.href} className="relative group">
+                <span className="cursor-pointer">Tours</span>
+
+                {/* Dropdown */}
+                <div
+                  className={`absolute top-full left-0 mt-4 w-56 rounded-xl bg-[#8B4513] shadow-xl 
+                  opacity-0 invisible group-hover:opacity-100 group-hover:visible 
+                  translate-y-2 group-hover:translate-y-0 transition-all duration-300`}
+                >
+                  <ul className="py- z-1000">
+                    {tourLinks.map((tour) => (
+                      <li key={tour.href}>
+                        <Link
+                          href={tour.href}
+                          className="block px-5 py-2 text-gray-700 hover:bg-[#8B4513]/10 hover:text-[#8B4513] transition"
+                        >
+                          {tour.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Underline */}
+                <span className="absolute left-0 -bottom-1 h-[2px] bg-[#8B4513] w-0 group-hover:w-full transition-all"></span>
+              </div>
+            )} else{
             return (
+              
               <Link key={link.href} href={link.href} className="relative group">
                 <span
                   className={`transition-colors duration-300 ${
@@ -92,6 +132,7 @@ useEffect(() => {
                 ></span>
               </Link>
             );
+          }
           })}
         </div>
 
