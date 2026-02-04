@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import ClientLayout from "./ClientLayout";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppFloat from "@/components/WhatsappFloat";
@@ -18,11 +19,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-white">
-        <Navbar />
-        {children}
-        <WhatsAppFloat />
-        <ScrollToTop />
-        <Footer />
+        <ClientLayout>
+          <Navbar />
+          {children}
+          <WhatsAppFloat />
+          <ScrollToTop />
+          <Footer />
+      </ClientLayout>
       </body>
     </html>
   );
